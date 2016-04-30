@@ -1,8 +1,9 @@
 # dpArqdsisProjetoCerveja
 Projeto  para conclusão do curso de Arqdsis 2016.
 
-30/04/2016 - 
-  Inserido junto ao fonte, biblioteca mysql
-  Criado página html index.html
-  Criado página jsp incluircliente.jsp
-  Criado package controller e servlet ManterController
+<ul>30/04/2016
+  <li>Inserido junto ao fonte, biblioteca mysql</li>
+  <li>Criado página html index.html</li>
+  <li>Criado página jsp incluircliente.jsp</li>
+  <li>Criado package controller e servlet ManterController</li>
+</ul>
