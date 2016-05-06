@@ -10,24 +10,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.usjt.arqdsis.cerveja.dao.ClienteDao;
+import br.usjt.arqdsis.cerveja.dao.CervejasDAO;
 import br.usjt.arqdsis.cerveja.dao.ConnectionFactory;
-import br.usjt.arqdsis.cerveja.model.Cliente;
+import br.usjt.arqdsis.cerveja.model.Cervejas;
 
 /**
- * Servlet implementation class ManterCliente
+ * Servlet implementation class ManterCerveja
  */
-@WebServlet("/ManterCliente.do")
-public class ManterCliente extends HttpServlet {
+@WebServlet("/ManterCerveja.do")
+public class ManterCerveja extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public ManterCliente() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public ManterCerveja() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -41,25 +41,24 @@ public class ManterCliente extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String acao = request.getParameter("acao");
-		if ("inserir".equalsIgnoreCase(acao)){
-			response.sendRedirect("inserircliente.jsp");
-		}else if("Inserir Cliente".equalsIgnoreCase(acao)){
+		if("inserir".equalsIgnoreCase(acao)) {
+			response.sendRedirect("inserircerveja.jsp");
+		}else if("Inserir Cerveja".equalsIgnoreCase(acao)){
 			String nome = request.getParameter("nome");
-			String email = request.getParameter("email");
-			String fone = request.getParameter("fone");
-
-			Cliente cliente = new Cliente();
-			cliente.setAll(0, nome, fone, email);
-
+			String tipo = request.getParameter("email");
+			String fabricante = request.getParameter("fabricante");
+			Double preco = Double.parseDouble(request.getParameter("preco")); 
+			
+			Cervejas cerveja = new Cervejas();
+			cerveja.setAll(0, nome, tipo, fabricante, preco);
+			
 			try{
 				Connection conn = ConnectionFactory.obtemConexao();
-				ClienteDao clienteDao = new ClienteDao();
-				clienteDao.create(conn, cliente);
-				
-			} catch (SQLException e){
+				CervejasDAO cervejasDao = new CervejasDAO();
+				cervejasDao.create(conn, cerveja);
+			} catch(SQLException e){
 				e.printStackTrace();
 			}
-			response.sendRedirect("index.html");
 		}else if("Listar".equalsIgnoreCase(acao)){
 			response.sendRedirect("listarcliente.jsp");
 		}else if("Voltar".equalsIgnoreCase(acao)){
