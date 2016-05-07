@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.usjt.arqdsis.cerveja.dao.CervejasDAO;
-import br.usjt.arqdsis.cerveja.dao.ConnectionFactory;
+import br.usjt.arqdsis.cerveja.factory.ConnectionFactory;
 import br.usjt.arqdsis.cerveja.model.Cervejas;
 
 /**

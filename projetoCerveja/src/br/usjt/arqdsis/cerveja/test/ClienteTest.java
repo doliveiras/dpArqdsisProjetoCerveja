@@ -8,8 +8,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import br.usjt.arqdsis.cerveja.dao.ClienteDao;
-import br.usjt.arqdsis.cerveja.dao.ConnectionFactory;
 import br.usjt.arqdsis.cerveja.dao.NotFoundException;
+import br.usjt.arqdsis.cerveja.factory.ConnectionFactory;
 import br.usjt.arqdsis.cerveja.model.Cliente;
 
 public class ClienteTest {
